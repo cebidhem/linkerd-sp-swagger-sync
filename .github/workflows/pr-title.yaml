@@ -2,14 +2,12 @@ name: 'Validate PR title'
 
 on:
   pull_request:
-    types: [ opened, reopened, synchronize ]
-  pull_request_target:
+    branches: [ main ]
     types: [ opened, reopened, synchronize ]
 
 permissions:
   pull-requests: read
   statuses: write
-
 
 jobs:
   main:
