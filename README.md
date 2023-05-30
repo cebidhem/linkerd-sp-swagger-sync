@@ -2,7 +2,7 @@
 
 Applying Linkerd ServiceProfiles generated from Swagger automatically
 
-### Goal
+## Goal
 
 Linkerd allows to create ServiceProfiles from a Swagger file. This is great when you can generate it locally, or include it somehow in your deployments (Helm, Flux, etc...)
 
@@ -12,19 +12,19 @@ This docker image aims at getting a Swagger documentation online, process it wit
 
 In my case, I'll run it as a Helm post-upgrade hook.
 
-### Non Goals
+## Non Goals
 
 This fulfills a very specific use-case and yours may be different. If your contributions are welcomed, please note that this is a side project that I'll maintain on my free time on a best effort basis. 
 
 Of course, feel also free to fork the project: it's under the [MIT license](LICENSE).
 
-### Examples
+## Examples
 
 This can be run as a [job](#job-definition) (e.g as a Helm post-upgrade hook). 
 
-If you intend to run this way as well, be aware that you must configure RBAC (either [cluster scoped](#cluster-scoped-rbac) or [namespaced](#namespaced-rbac)) with your job.
+If you intend to run this way as well, be aware that you must configure RBAC (either [cluster scoped](#cluster-scoped) or [namespaced](#namespaced)) with your job.
 
-#### Job definition
+### Job definition
 
 ```yaml
 apiVersion: batch/v1
@@ -48,7 +48,9 @@ spec:
       restartPolicy: OnFailure
 ```
 
-#### Cluster scoped RBAC
+### RBAC definition
+
+#### Cluster scoped
 
 ```yaml
 apiVersion: rbac.authorization.k8s.io/v1
@@ -89,7 +91,7 @@ subjects:
     name: linkerd-serviceprofile-update
 ```
 
-#### Namespaced RBAC
+#### Namespaced
 
 * **In your application namespace**
 ```yaml
