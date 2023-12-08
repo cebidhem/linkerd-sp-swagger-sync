@@ -1,4 +1,4 @@
-FROM alpine:3.18 as base
+FROM alpine:3.19 as base
 RUN apk add --no-cache curl openssl
 RUN addgroup -g 1001 app && \
     adduser -D -G app -u 1001 app
